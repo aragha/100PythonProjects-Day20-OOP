@@ -1,15 +1,16 @@
 # 100PythonProjects-Day20-OOP
 Object Oriented Programming implementation of the Snake game project
 
-Goal: Create the classic snake game, using Python
+* Goal: Create the classic snake game, using Python
 
-We'll be using Turtle graphics project ( https://docs.python.org/3/library/turtle.html ) and OOP
-The approach is to break down a complex problem into simple steps. The steps:
-Create a snake body
-Move the snake
-Detect collision with food
-Create a score board
-Detect collision with walls
-Detect collision with it's tail
+* We'll be using Turtle graphics project ( https://docs.python.org/3/library/turtle.html ) and OOP.
 
-Do this using user defined classes, attributes, and methods
+* The approach is to break down a complex problem into simple steps. The steps:
+1. Create a snake body
+2. Move the snake
+3. Detect collision with food
+4. Create a score board
+5. Detect collision with walls
+6. Detect collision with it's tail
+
+*Do this using user defined classes, attributes, and methods
