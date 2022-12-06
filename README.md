@@ -1,4 +1,5 @@
 # 100PythonProjects-Day20-OOP
+<hr>
 Object Oriented Programming implementation of the Snake game project
 
 * Goal: Create the classic snake game, using Python
@@ -11,6 +12,6 @@ Object Oriented Programming implementation of the Snake game project
 3. Detect collision with food
 4. Create a score board
 5. Detect collision with walls
-6. Detect collision with it's tail
+6. Detect collision with its tail
 
-*Do this using user defined classes, attributes, and methods
+* Do this using user defined classes, attributes, and methods
