@@ -14,4 +14,4 @@ Object Oriented Programming implementation of the Snake game project
 5. Detect collision with walls
 6. Detect collision with its tail
 
-* Do this using user defined classes, attributes, and methods
+* <a href="https://github.com/aragha/100PythonProjects-Day20-OOP/blob/master/snake.py"> Do this using user defined classes, attributes, and methods </a>
