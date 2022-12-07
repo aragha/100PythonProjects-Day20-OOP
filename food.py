@@ -16,8 +16,8 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
-        foodx = randint(SCREEN_BOUNDARIES[0][0] - 10, SCREEN_BOUNDARIES[1][0] - 10)
-        foody = randint(SCREEN_BOUNDARIES[0][1] - 10, SCREEN_BOUNDARIES[1][1] - 10)
+        foodx = randint(SCREEN_BOUNDARIES[0][0] + 10, SCREEN_BOUNDARIES[1][0] - 10)
+        foody = randint(SCREEN_BOUNDARIES[0][1] + 10, SCREEN_BOUNDARIES[1][1] - 10)
         self.goto(foodx, foody)
         print(f"Food located at {foodx}, {foody}")
 

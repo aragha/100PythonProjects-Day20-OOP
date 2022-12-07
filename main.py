@@ -25,7 +25,7 @@ screen.onkey(key="Escape", fun=end_game)
 scoreboard.write_score()
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    # time.sleep(0.1)
     game_is_on = serp.move_forward()
     # detect collision with food
     # using the turtle's distance method
@@ -37,10 +37,17 @@ while game_is_on:
         food.refresh()
         serp.extend()
     #  if head collides with any part of the snake, the game should end
-    for segment in serp.segments:
-        if segment == serp.head:
-            pass
-        elif serp.head.distance(segment) < 10:
+
+    # for segment in serp.segments:
+    #     if segment == serp.head:
+    #         pass
+    #     elif serp.head.distance(segment) < 10:
+    #         game_is_on = False
+    #         scoreboard.game_over()
+    #  same as above, but using slicing
+    temp_segments = serp.segments[1:] # remove the first entry in segments, which is the head
+    for segment in temp_segments:
+        if serp.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
     if not game_is_on:
