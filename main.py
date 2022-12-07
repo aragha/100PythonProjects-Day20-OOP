@@ -1,4 +1,3 @@
-
 from turtle import Screen
 import time
 screen = Screen()
@@ -60,7 +59,9 @@ screen.onkey(key="Escape", fun=end_game)
 
 while game_is_on:
     screen.update()
-    serp.move_forward()
+    game_is_on = serp.move_forward()
+    if not game_is_on:
+        print("snake hit a wall. game over")
     time.sleep(0.1)
 
 # screen.exitonclick()?

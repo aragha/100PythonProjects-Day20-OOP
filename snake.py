@@ -1,6 +1,8 @@
 from turtle import Turtle
+
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 FOLLOWING_DISTANCE = 21
+SCREEN_BOUNDARIES = [(-300, -300), (300, 300)]
 
 
 class Snake:
@@ -8,6 +10,7 @@ class Snake:
     new_x = 0
     new_y = 0
     segments = []
+
     # methods
 
     def __init__(self):
@@ -21,18 +24,32 @@ class Snake:
             self.segments.append(new_segment)
             self.head = self.segments[0]
 
+    def check_wall_collision(self):
+        # print(f"checking wall collision - {self.head.xcor()}, {self.head.ycor()}")
+        if ((self.head.xcor() > SCREEN_BOUNDARIES[0][0]) and (self.head.xcor() < SCREEN_BOUNDARIES[1][0])
+                and
+                (self.head.ycor() > SCREEN_BOUNDARIES[0][1]) and (self.head.ycor() < SCREEN_BOUNDARIES[1][1])):
+            # print(f"checking wall collision - {self.head.xcor()}, {self.head.ycor()}")
+            return False
+        else:
+            return True
+
     def move_forward(self):
 
         # instead of focusing on moving the head, we're going to focus on the segments
         # in reverse order. so the for loop will need update
-        for seg_num in range(len(self.segments) - 1, 0, -1):   # range(start=2, stop=0, step=-1):
+        for seg_num in range(len(self.segments) - 1, 0, -1):  # range(start=2, stop=0, step=-1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
             # time.sleep(0.1)  # little faster
         # self.segments[0].forward(FOLLOWING_DISTANCE)
-        self.head.forward(FOLLOWING_DISTANCE)
         print("inside move_forward method")
+        if self.check_wall_collision():
+            return False
+        else:
+            self.head.forward(FOLLOWING_DISTANCE)
+            return True
 
 
     def go_north(self):
