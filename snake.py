@@ -15,15 +15,23 @@ class Snake:
 
     def __init__(self):
 
-        print("initializing")
+        # print("initializing")
+        # self.add_segment()
         for position in STARTING_POSITIONS:
+            self.add_segment(position)
+        self.head = self.segments[0]
+    # def create_snake(self):
+    #     for position in STARTING_POSITIONS:
+    #         self.add_segment(position)
+    def add_segment(self, position):
             new_segment = Turtle('square')
             new_segment.color('white')
             new_segment.penup()  # to remove the line that each block leaves behind
             new_segment.goto(position)
             self.segments.append(new_segment)
-            self.head = self.segments[0]
-
+    def extend(self):
+        # add new segment to snake when it gets a food
+        self.add_segment(self.segments[-1].position())
     def check_wall_collision(self):
         # print(f"checking wall collision - {self.head.xcor()}, {self.head.ycor()}")
         if ((self.head.xcor() > SCREEN_BOUNDARIES[0][0]) and (self.head.xcor() < SCREEN_BOUNDARIES[1][0])
@@ -44,13 +52,12 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)
             # time.sleep(0.1)  # little faster
         # self.segments[0].forward(FOLLOWING_DISTANCE)
-        print("inside move_forward method")
+        # print("inside move_forward method")
         if self.check_wall_collision():
             return False
         else:
             self.head.forward(FOLLOWING_DISTANCE)
             return True
-
 
     def go_north(self):
         # print(f"in north method. heading: {self.segments[0].heading()}")
@@ -58,28 +65,28 @@ class Snake:
             self.head.setheading(90)
         else:
             return
-        print(f"in north method.final  heading: {self.segments[0].heading()}")
+        # print(f"in north method.final  heading: {self.segments[0].heading()}")
 
     def go_south(self):
-        print("in south method")
+        # print("in south method")
         if self.head.heading() in [0, 180]:
             self.head.setheading(270)
         else:
             return
-        print(f"in south method.final  heading: {self.segments[0].heading()}")
+        # print(f"in south method.final  heading: {self.segments[0].heading()}")
 
     def go_west(self):
-        print("in west method")
+        # print("in west method")
         if self.head.heading() in [90, 270]:
             self.head.setheading(180)
         else:
             return
-        print(f"in west method.final  heading: {self.segments[0].heading()}")
+        # print(f"in west method.final  heading: {self.segments[0].heading()}")
 
     def go_east(self):
-        print("in east method")
+        # print("in east method")
         if self.head.heading() in [90, 270]:
             self.head.setheading(0)
         else:
             return
-        print(f"in east method.final  heading: {self.segments[0].heading()}")
+        # print(f"in east method.final  heading: {self.segments[0].heading()}")
